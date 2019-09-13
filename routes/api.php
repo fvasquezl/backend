@@ -6,8 +6,11 @@ Route::get('/user', 'AuthController@user');
 Route::post('/logout', 'AuthController@logout');
 
 Route::prefix('topics')
-    ->middleware('auth:api')
     ->group(function(){
-    Route::post('/', 'TopicController@store');
+    Route::post('/', 'TopicsController@store')->middleware('auth:api');
+    Route::get('/', 'TopicsController@index');
+    Route::get('/{topic}', 'TopicsController@show');
+    Route::patch('/{topic}', 'TopicsController@update')->middleware('auth:api');
+    Route::delete('/{topic}', 'TopicsController@destroy')->middleware('auth:api');
 });
 

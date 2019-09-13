@@ -2,12 +2,12 @@
 
 namespace App;
 
-//use App\Traits\Orderable;
+use App\Traits\Orderable;
 use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
 {
-   // use Orderable;
+    use Orderable;
 
     protected $fillable=['title'];
 

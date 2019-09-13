@@ -61,4 +61,10 @@ class User extends Authenticatable implements JWTSubject
         //return a key value array, containing any custom claims to be added to JWT
         return [];
     }
+
+
+    public function ownsTopic(Topic $topic)
+    {
+        return $this->id === $topic->user->id;
+    }
 }
